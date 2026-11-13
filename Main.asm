@@ -8,6 +8,15 @@ INCLUDE Constants.inc
 INCLUDE Structs.inc
 INCLUDE GameData.inc
 
+InitNewRun PROTO
+InitStage PROTO
+RunCombatStage PROTO
+RunCardReward PROTO
+
+RenderTitle PROTO
+RenderVictory PROTO
+RenderGameOver PROTO
+
 .data
  consoleTitle	BYTE "Cache Interrupt: x86 Deckbuilder",0
  hStdOut		DWORD ?
@@ -17,6 +26,14 @@ INCLUDE GameData.inc
  totalStages	DWORD 3
 .code
 main PROC
+ call Randomize			;seed Irvine32 RNG
+
+ ;configure Win32 console
+ INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+ mov hStdOut, eax
+
+ INVOKE SetConsoleTitleA, ADDR consoleTitle
+ INVOKE SetConsoleCursorInfo, hStdOut, ADDR cursorInfo
 
  INVOKE ExitProcess,0
 main ENDP
