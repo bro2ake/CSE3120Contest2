@@ -8,14 +8,14 @@ INCLUDE Constants.inc
 INCLUDE Structs.inc
 INCLUDE GameData.inc
 
-InitNewRun PROTO
-InitStage PROTO
-RunCombatStage PROTO
-RunCardReward PROTO
+InitNewRun		PROTO		;Sets PlayerHP, copies StarterDeck into MasterDeck
+InitStage		PROTO		;Loads enemies for currentStage, resets piles and shuffles
+RunCombatStage	PROTO		;Runs turn loop; returns EAX = 1 for wins and EAX = 0 for losses
+RunCardReward	PROTO		;Shows 3 random card rewards to pick from
 
-RenderTitle PROTO
-RenderVictory PROTO
-RenderGameOver PROTO
+RenderTitle		PROTO		;Draws titles screen
+RenderVictory	PROTO		;Draws celebration screen
+RenderGameOver	PROTO		;Draws defeat screen
 
 .data
  consoleTitle	BYTE "Cache Interrupt: x86 Deckbuilder",0
