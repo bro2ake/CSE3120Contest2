@@ -70,6 +70,17 @@ main PROC
   PlayerDefeated:
    ;call RenderGameOver					- TO BE IMPLEMENTED
    ;jmp PromptReplay
- INVOKE ExitProcess,0
+
+  PromptReplay:
+   ;wait for 'R' or 'r' to restart or 'Q'/ESC to exit
+   call ReadChar
+   cmp al, 'r'
+   je GameRestart
+   cmp al, 'R'
+   je GameRestart
+
+   ;restore cursor before exiting
+   mov cursorInfo.bVisible, TRUE
+   INVOKE ExitProcess,0
 main ENDP
 END main
