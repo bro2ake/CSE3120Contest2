@@ -35,6 +35,16 @@ main PROC
  INVOKE SetConsoleTitleA, ADDR consoleTitle
  INVOKE SetConsoleCursorInfo, hStdOut, ADDR cursorInfo
 
+ GameRestart:
+  ;Title Screen and Run Initialization
+  ;call RenderTitle			- TO BE IMPLEMENTED
+  ;call InitNewRun			- TO BE IMPLEMENTED
+  mov currentStage,0
+
+ StageLoop:		;Outer 3-Stage Progression loop for stages 1,2,3
+  mov eax, currentStage
+  cmp eax, totalStages
+  jge AllStagesCleared		;completed all three stages, jump to victory screen.
  INVOKE ExitProcess,0
 main ENDP
 END main
