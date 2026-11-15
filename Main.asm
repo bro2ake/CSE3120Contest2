@@ -45,6 +45,19 @@ main PROC
   mov eax, currentStage
   cmp eax, totalStages
   jge AllStagesCleared		;completed all three stages, jump to victory screen.
+
+  ;Load enemy stats, copy MasterDeck, shuffle
+  ;INVOKE InitStage, currentStage		- TO BE IMPLEMENTED
+
+  ;call RunCombatStage					- TO BE IMPLEMENTED
+  cmp eax,0				;if eax is 0, the playerHP is 0
+  ;je PlayerDefeated					- TO BE IMPLEMENTED
+
+  ;Check if there is another stage before offering a reward.
+  inc currentStage
+  mov eax, currentStage
+  cmp eax,totalStages
+  ;jge AllStagesCleared					- TO BE IMPLEMETED
  INVOKE ExitProcess,0
 main ENDP
 END main
