@@ -51,13 +51,25 @@ main PROC
 
   ;call RunCombatStage					- TO BE IMPLEMENTED
   cmp eax,0				;if eax is 0, the playerHP is 0
-  ;je PlayerDefeated					- TO BE IMPLEMENTED
+  je PlayerDefeated					
 
   ;Check if there is another stage before offering a reward.
   inc currentStage
   mov eax, currentStage
   cmp eax,totalStages
-  ;jge AllStagesCleared					- TO BE IMPLEMETED
+  jge AllStagesCleared
+
+  ;Draft one new card into the MasterDeck
+  ;call RunCardReward					- TO BE IMPLEMENTED
+  jmp StageLoop
+
+  AllStagesCleared:
+   ;call RenderVictory					- TO BE IMPLEMENTED
+   ;jmp PromptReplay					- TO BE IMPLEMENTED
+
+  PlayerDefeated:
+   ;call RenderGameOver					- TO BE IMPLEMENTED
+   ;jmp PromptReplay
  INVOKE ExitProcess,0
 main ENDP
 END main
