@@ -51,7 +51,7 @@ main PROC
 
   ;call RunCombatStage					- TO BE IMPLEMENTED
   cmp eax,0				;if eax is 0, the playerHP is 0
-  je PlayerDefeated					
+  je PlayerDefeated
 
   ;Check if there is another stage before offering a reward.
   inc currentStage
@@ -65,11 +65,11 @@ main PROC
 
   AllStagesCleared:
    ;call RenderVictory					- TO BE IMPLEMENTED
-   ;jmp PromptReplay					- TO BE IMPLEMENTED
+   jmp PromptReplay
 
   PlayerDefeated:
    ;call RenderGameOver					- TO BE IMPLEMENTED
-   ;jmp PromptReplay
+   jmp PromptReplay
 
   PromptReplay:
    ;wait for 'R' or 'r' to restart or 'Q'/ESC to exit
