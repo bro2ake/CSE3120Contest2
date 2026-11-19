@@ -187,6 +187,12 @@ RenderTitle PROC USES edx
  StartSelected:
 
  CheckMouseEvent:
+  cmp inputRec.EventType, MOUSE_EVENT	;check if mouse click
+  jne TitleInputLoop
+
+  test inputRec.MouseEvent.dwButtonState, FROM_LEFT_1ST_BUTTON_PRESSED ; check left mouse button
+  jnz StartSelected
+  jmp TitleInputLoop
 
 
  ret
