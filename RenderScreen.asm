@@ -24,4 +24,16 @@ inter2 BYTE"|_ _| \ | |_   _| ____|  _ \|  _ \| | | |  _ \_   _|",0
 inter3 BYTE" | ||  \| | | | |  _| | |_) | |_) | | | | |_) || |  ",0
 inter4 BYTE" | || |\  | | | | |___|  _ <|  _< | |_| |  __/ | |  ",0
 inter5 BYTE"|___|_| \_| |_| |_____|_| \_\_| \_\\___/|_|    |_|  ",0
+; Divider line ( 55 chars wide -> center at dl = 12)
+divider BYTE"-======================================================-",0
+
+.code
+RenderTitle PROC
+ mov eax, lightGray + (black * 16) ;set background black with light gray text
+ call SetTextColor
+ call Clrscr
+
+ mov eax, lightCyan + (black*16)
+ call SetTextColor
+
 END
