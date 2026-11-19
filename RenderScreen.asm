@@ -32,8 +32,8 @@ ruleLine2 BYTE " * Read Enemy Intent before ending your turn with [E]",0
 ruleLine3 BYTE " * Defeat 3 consecuitive daemons & draw new cards between combats",0
 
 ;start/exit prompts
-promptStr BYTE "		>>> PRESS [ENTER] OR CLICK TO INITIALIZE <<<",0
-quitStr	  BYTE "				  (Press [ESC] to abort)"			 ,0
+promptStr BYTE "          >>> PRESS [ENTER] OR CLICK TO INITIALIZE <<<",0
+quitStr	  BYTE "                     (Press [ESC] to abort)"			 ,0
 
 ;input Handling
 hStdIn DWORD ?
@@ -141,6 +141,20 @@ RenderTitle PROC USES edx
  mov dl, 26
  call Gotoxy
  mov edx, OFFSET ruleLine3
+ call WriteString
+ call Delay
+
+ mov dh, 22
+ mov dl, 26
+ call Gotoxy
+ mov edx, OFFSET promptStr
+ call WriteString
+ call Delay
+
+ mov dh, 23
+ mov dl, 26
+ call Gotoxy
+ mov edx, OFFSET quitStr
  call WriteString
  call Delay
 
