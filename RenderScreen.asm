@@ -166,6 +166,19 @@ RenderTitle PROC USES edx
  TitleInputLoop:
  INVOKE ReadConsoleInputA, hStdIn, ADDR inputRec, 1, ADDR eventsRead
  ;check if event is a key press
+ cmp inputRec.EventType, KEY_EVENT
+ jne CheckMouse Event
+
+ cmp inputRec.KeyEvent.bKeyDown,0 ;only on key down movement
+ je TitleInputLoop
+
+ ExitProgram:
+  INVOKE ExitProcess,0
+
+  StartSelected:
+
+ CheckMouseEvent:
+
 
  ret
  RenderTitle ENDP
