@@ -53,11 +53,23 @@ RenderTitle PROC USES edx
  mov edx, OFFSET cache2
  call WriteString ;write cache2
 
- mov dh, 5
+ mov dh, 6
  mov dl,44
  call Gotoxy
  mov edx, OFFSET cache3
  call WriteString ;write cache3
+
+ mov dh, 7
+ mov dl,44
+ call Gotoxy
+ mov edx, OFFSET cache4
+ call WriteString ;write cache4
+
+ mov dh, 8
+ mov dl,44
+ call Gotoxy
+ mov edx, OFFSET cache5
+ call WriteString ;write cache5
 
  ret
  RenderTitle ENDP
