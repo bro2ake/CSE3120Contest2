@@ -17,7 +17,7 @@ cache3 BYTE"| |     / _ \| |   | |_| |  _|  ",0
 cache4 BYTE"| |___ / ___ \ |___|  _  | |___ ",0
 cache5 BYTE" \____/_/   \_\____|_| |_|_____|",0
 
-;INTERRUPT (52 chars wide -> center at dl = 30)
+;INTERRUPT (52 chars wide -> center at dl = 32)
 inter1 BYTE" ___ _   _ _____ _____ ____  ____  _   _ ____ _____ ",0
 inter2 BYTE"|_ _| \ | |_   _| ____|  _ \|  _ \| | | |  _ \_   _|",0
 inter3 BYTE" | ||  \| | | | |  _| | |_) | |_) | | | | |_) || |  ",0
@@ -65,11 +65,30 @@ RenderTitle PROC USES edx
  mov edx, OFFSET cache4
  call WriteString ;write cache4
 
- mov dh, 8
- mov dl,44
+ mov dh, 9
+ mov dl,34
  call Gotoxy
- mov edx, OFFSET cache5
- call WriteString ;write cache5
+ mov edx, OFFSET inter1
+ call WriteString ;write inter1
+
+ mov dh, 10
+ mov dl,34
+ call Gotoxy
+ mov edx, OFFSET inter2
+ call WriteString ;write inter2
+
+ mov dh, 11
+ mov dl,34
+ call Gotoxy
+ mov edx, OFFSET inter3
+ call WriteString ;write inter3
+
+ mov dh, 12
+ mov dl,34
+ call Gotoxy
+ mov edx, OFFSET inter4
+ call WriteString ;write inter4
+ 
 
  ret
  RenderTitle ENDP
