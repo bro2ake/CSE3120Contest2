@@ -35,11 +35,19 @@ RenderTitle PROC USES edx
  mov eax, lightCyan + (black*16)
  call SetTextColor
 
- mov dh, 2
+ mov dh, 2 
  mov dl, 32
  call Gotoxy
  mov edx, OFFSET divider
- call WriteString
+ call WriteString ;write divider
+
+ mov dh, 4
+ mov dh, 4
+ mov dl,44
+ call Gotoxy
+ mov edx, OFFSET cache1
+ call WriteString ;write cache1
+
  ret
  RenderTitle ENDP
 END
