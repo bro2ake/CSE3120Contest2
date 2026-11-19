@@ -120,7 +120,7 @@ RenderTitle PROC USES edx
  mov edx, OFFSET divider
  call WriteString ;write divider
 
- mov eax, 1000	;add delay for aesthetic 
+ mov eax, 333	;add delay for aesthetic 
  call Delay
 
  mov dh, 18
@@ -128,12 +128,21 @@ RenderTitle PROC USES edx
  call Gotoxy
  mov edx, OFFSET ruleLine1
  call WriteString
+ call Delay
 
  mov dh, 19
  mov dl, 30
  call Gotoxy
- mov edx, OFFSETm ruleLine2
+ mov edx, OFFSET ruleLine2
  call WriteString
+ call Delay
+
+ mov dh, 20
+ mov dl, 26
+ call Gotoxy
+ mov edx, OFFSET ruleLine3
+ call WriteString
+ call Delay
 
  INVOKE GetStdHandle, STD_INPUT_HANDLE	;input
  mov hStdIn, eax
