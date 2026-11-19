@@ -172,10 +172,19 @@ RenderTitle PROC USES edx
  cmp inputRec.KeyEvent.bKeyDown,0 ;only on key down movement
  je TitleInputLoop
 
+ movzx eax, inputRec.KeyEvent.wVirtualKeyCode
+ cmp eax, VK_RETURN		; ENTER key
+ je StartSelected
+ cmp eax, VK_SPACE		; SPACE key
+ je StartSelected
+ cmp eax, VK_ESCAPE		; ESCAPE key
+ je ExitProgram
+ jmp TitleInputLoop
+
  ExitProgram:
   INVOKE ExitProcess,0
 
-  StartSelected:
+ StartSelected:
 
  CheckMouseEvent:
 
