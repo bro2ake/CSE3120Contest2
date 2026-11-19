@@ -26,6 +26,19 @@ inter5 BYTE"|___|_| \_| |_| |_____|_| \_\_| \_\\___/|_|    |_|  ",0
 ; Divider line ( 56 chars wide -> center at dl = 32)
 divider BYTE"-======================================================-",0
 
+;rule lines
+ruleLine1 BYTE " * Play cards using keys [1]-[5] (costs Energy; resets every turn)",0
+ruleLine2 BYTE " * Read Enemy Intent before ending your turn with [E]",0
+ruleLine3 BYTE " * Defeat 3 consecuitive daemons & draw new cards between combats",0
+
+;start/exit prompts
+promptStr BYTE "		>>> PRESS [ENTER] OR CLICK TO INITIALIZE <<<",0
+quitStr	  BYTE "				  (Press [ESC] to abort)"			 ,0
+
+;input Handling
+hStdIn DWORD ?
+inputRec INPUT_RECORD <>
+eventsRead DWORD ?
 .code
 RenderTitle PROC USES edx
  mov eax, lightGray + (black * 16) ;set background black with light gray text
