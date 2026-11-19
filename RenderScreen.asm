@@ -120,6 +120,15 @@ RenderTitle PROC USES edx
  mov edx, OFFSET divider
  call WriteString ;write divider
 
+ INVOKE GetStdHandle, STD_INPUT_HANDLE	;input
+ mov hStdIn, eax
+
+ INVOKE FlushConsoleInputBuffer, hStdIn ;flush any buffered events
+
+ TitleInputLoop:
+ INVOKE ReadConsoleInputA, hStdIn, ADDR inputRec, 1, ADDR eventsRead
+ ;check if event is a key press
+
  ret
  RenderTitle ENDP
 END
