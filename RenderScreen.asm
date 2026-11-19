@@ -167,12 +167,12 @@ RenderTitle PROC USES edx
  INVOKE ReadConsoleInputA, hStdIn, ADDR inputRec, 1, ADDR eventsRead
  ;check if event is a key press
  cmp inputRec.EventType, KEY_EVENT
- jne CheckMouse Event
+ jne CheckMouseEvent
 
- cmp inputRec.KeyEvent.bKeyDown,0 ;only on key down movement
+ cmp (KEY_EVENT_RECORD PTR [esi]).bKeyDown,0 ;only on key down movement
  je TitleInputLoop
 
- movzx eax, inputRec.KeyEvent.wVirtualKeyCode
+ movzx eax, (KEY_EVENT_RECORD PTR [esi]).wVirtualKeyCode
  cmp eax, VK_RETURN		; ENTER key
  je StartSelected
  cmp eax, VK_SPACE		; SPACE key
@@ -185,12 +185,17 @@ RenderTitle PROC USES edx
   INVOKE ExitProcess,0
 
  StartSelected:
-
+  ; Reset the text color and clear screen before entering next screen
+  mov eax, lightGray + (black*16)
+  call SetTextColor
+  call Clrscr
+  ret
+  
  CheckMouseEvent:
   cmp inputRec.EventType, MOUSE_EVENT	;check if mouse click
   jne TitleInputLoop
 
-  test inputRec.MouseEvent.dwButtonState, FROM_LEFT_1ST_BUTTON_PRESSED ; check left mouse button
+  test (MOUSE_EVENT_RECORD PTR [esi]).dwButtonState, 0001h
   jnz StartSelected
   jmp TitleInputLoop
 
