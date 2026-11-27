@@ -172,6 +172,8 @@ RenderTitle PROC USES edx
 
  TitleInputLoop:
  INVOKE ReadConsoleInputA, hStdIn, ADDR inputRec, 1, ADDR eventsRead
+
+ lea esi, inputRec.Event	;Point ESI directly to the Event
  ;check if event is a key press
  cmp inputRec.EventType, KEY_EVENT
  jne CheckMouseEvent
@@ -201,7 +203,7 @@ RenderTitle PROC USES edx
  CheckMouseEvent:
   cmp inputRec.EventType, MOUSE_EVENT	;check if mouse click
   jne TitleInputLoop
-
+  
   test (MOUSE_EVENT_RECORD PTR [esi]).dwButtonState, 0001h
   jnz StartSelected
   jmp TitleInputLoop
