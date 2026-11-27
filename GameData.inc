@@ -16,3 +16,20 @@ EndTurn           PROTO
 RenderScreen      PROTO
 
 ; --- Shared Global Variables (defined in gamedata.asm) ---
+
+EXTERNDEF currentStage:DWORD
+EXTERNDEF gameOverFlag:BYTE
+EXTERNDEF stageClearedFlag:BYTE
+
+EXTERNDEF playerMaxHP:DWORD
+EXTERNDEF playerHP:DWORD
+EXTERNDEF maxEnergy:DWORD
+EXTERNDEF playerEnergy:DWORD
+EXTERNDEF playerBlock:DWORD
+EXTERNDEF playerStrength:DWORD
+
+EXTERNDEF enemyMaxHP:DWORD
+EXTERNDEF enemyHP:DWORD
+EXTERNDEF enemyBlock:DWORD
+EXTERNDEF enemyIntentType:DWORD
+EXTERNDEF enemyIntentVal:DWORD
