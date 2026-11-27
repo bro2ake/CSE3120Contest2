@@ -77,4 +77,22 @@ RollDraftPool PROC USES eax, ebx, ecx, edx, esi
 
  DoneRoll:
   ret
+RollDraftPool ENDP
+
+DraftStartingCards PROC USES eax ebx ecx edx esi edi
+ ;Renders the 5 rolled cards at Y = 5 through 9 and lets the player pick 2 via keys '1' through '5' or left clicking on a row.
+ mov picksRemaining, DRAFT_PICKS_MAX
+
+ RedrawDraft:
+
+ DrawDraftRows:
+
+ PickedRowColors:
+
+ SetRowColor:
+
+ NextDraftRow:
+
+ DraftInputLoop:
+
 END
