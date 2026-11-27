@@ -158,8 +158,15 @@ RenderTitle PROC USES edx
  call WriteString
  call Delay
 
+ ENABLE_WINDOW_INPUT	EQU 0008h
+ ENABLE_MOUSE_INPUT		EQU	0010h
+ ENABLE_EXTENDED_FLAGS	EQU	0080h
+
  INVOKE GetStdHandle, STD_INPUT_HANDLE	;input
  mov hStdIn, eax
+
+ mov eax, ENABLE_EXTENDED_FLAGS or ENABLE_MOUSE_INPUT or ENABLE_WINDOW_INPUT
+ INVOKE SetConsoleMode, hStdIn, eax
 
  INVOKE FlushConsoleInputBuffer, hStdIn ;flush any buffered events
 
@@ -173,11 +180,11 @@ RenderTitle PROC USES edx
  je TitleInputLoop
 
  movzx eax, (KEY_EVENT_RECORD PTR [esi]).wVirtualKeyCode
- cmp eax, VK_RETURN		; ENTER key
+ cmp eax, 0Dh			; ENTER key
  je StartSelected
- cmp eax, VK_SPACE		; SPACE key
+ cmp eax, 20h			; SPACE key
  je StartSelected
- cmp eax, VK_ESCAPE		; ESCAPE key
+ cmp eax, 1Bh			; ESCAPE key
  je ExitProgram
  jmp TitleInputLoop
 
