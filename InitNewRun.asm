@@ -62,6 +62,19 @@ RollDraftPool PROC USES eax, ebx, ecx, edx, esi
   call RandomRange
   add eax, esi
 
+  mov bl, catalogPool[esi]
+  mov dl, catalogPool[eax]
+  mov catalogPool[esi],dl
+  mov catalogPool[eax],bl
+
+  ;convert catalong index
+  add dl, 4
+  mov draftChoices[esi],dl
+  mov draftSelected[esi],0
+
+  inc esi
+  jmp SampleLoop
+
  DoneRoll:
- 
+  ret
 END
