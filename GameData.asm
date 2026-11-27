@@ -54,6 +54,15 @@ INCLUDE GameData.inc
  strCat11        BYTE "DEADLOCK       (2E) - Gain 10 Block + 2 Weak", 0
  strCat12        BYTE "STACK SMASH    (1E) - Deal 6 DMG + 6 Block", 0
  strCat13        BYTE "BIT SHIFT      (0E) - Gain 4 Block, Draw 1", 0
-
+ strCat14        BYTE "KERNEL PANIC   (3E) - Deal 26 DMG", 0
+ strCat15        BYTE "HOT PATCH      (1E) - Heal 6 HP, Exhaust", 0
+ strCat16        BYTE "GARBAGE COLL   (1E) - Gain 8 Block, Draw 1", 0
+ strCat17        BYTE "INLINE ASM     (0E) - Gain 1 Energy, Exhaust", 0
+ strCat18        BYTE "BRANCH PREDICT (1E) - Deal 8 DMG, Draw 1", 0
+ strCat19        BYTE "PIPELINE FLUSH (2E) - Deal 14 DMG + 1 Weak", 0
+ strCat20        BYTE "ROOTKIT        (1E) - Gain 2 Strength", 0
+ strCat21        BYTE "SANDBOX        (2E) - Gain 15 Block", 0
+ strCat22        BYTE "SYSCALL        (1E) - Deal 9 DMG", 0
+ strCat23        BYTE "HARD REBOOT    (2E) - Gain 12 Block, Heal 4 HP", 0
 
 END
