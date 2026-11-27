@@ -107,11 +107,21 @@ DraftStartingCards PROC USES eax ebx ecx edx esi edi
   mov eax, white + (black*16)
   jmp SetRowColor
  PickedRowColors:
-
+  mov eax, lightGreen + (black * 16)
  SetRowColor:
-
+  call SetTextColor
+  ; Print "[1] " through "[5] " prefix 
+  mov al, '['
+  call WriteChar
+  mov eax, ebx
+  inc eax
+  call WriteDec
+  mov al, ']'
+  call WriteChar
+  mov al, ' '
+  call WriteChar
  NextDraftRow:
-
+  
  DraftInputLoop:
 
 END
