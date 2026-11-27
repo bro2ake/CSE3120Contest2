@@ -68,3 +68,10 @@ EXTERNDEF handPile:BYTE
 EXTERNDEF handCount:DWORD
 EXTERNDEF discardPile:BYTE
 EXTERNDEF discardCount:DWORD
+
+; Shared Catalog & Draft Symbols
+EXTERNDEF catalogPool:BYTE
+EXTERNDEF draftChoices:BYTE
+EXTERNDEF draftSelected:BYTE
+EXTERNDEF picksRemaining:DWORD
+EXTERNDEF catalogStrTable:DWORD
