@@ -33,5 +33,19 @@ InitNewRun PROC USES eax ecx esi
   inc esi
   mov masterDeckCount, esi
 
+  call RollDraftPool		;choose 5 unique cards for picking
+  call DraftStartingCards	;select 2 of the cards and add them to player hand.
+
 InitNewRun ENDP
+; shuffle catalog pool to pick 5 distinct cards.
+RollDraftPool PROC USES eax, ebx, ecx, edx, esi
+ xor esi, esi
+ ResetPool:
+  
+ PickFive:
+
+ SampleLoop:
+
+ DoneRoll:
+ 
 END
