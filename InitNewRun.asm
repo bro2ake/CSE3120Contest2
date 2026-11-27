@@ -120,6 +120,17 @@ DraftStartingCards PROC USES eax ebx ecx edx esi edi
   call WriteChar
   mov al, ' '
   call WriteChar
+
+ ; Look up description in catalogStrTable using (CardID - 4)
+  movzx eax, draftChoices[ebx]
+  sub eax, 4
+  mov edx, catalogStrTable[eax * 4]
+  call WriteString
+
+  cmp draftSelected[ebx], 1
+  jne NextDraftRow
+  mov edx, OFFSET strPickedTag
+  call WriteString
  NextDraftRow:
   
  DraftInputLoop:
