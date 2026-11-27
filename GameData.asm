@@ -65,4 +65,8 @@ INCLUDE GameData.inc
  strCat22        BYTE "SYSCALL        (1E) - Deal 9 DMG", 0
  strCat23        BYTE "HARD REBOOT    (2E) - Gain 12 Block, Heal 4 HP", 0
 
+ catalogStrTable DWORD OFFSET strCat04, OFFSET strCat05, OFFSET strCat06, OFFSET strCat07, OFFSET strCat08
+                DWORD OFFSET strCat09, OFFSET strCat10, OFFSET strCat11, OFFSET strCat12, OFFSET strCat13
+                DWORD OFFSET strCat14, OFFSET strCat15, OFFSET strCat16, OFFSET strCat17, OFFSET strCat18
+                DWORD OFFSET strCat19, OFFSET strCat20, OFFSET strCat21, OFFSET strCat22, OFFSET strCat23
 END
