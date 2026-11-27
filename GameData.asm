@@ -43,5 +43,17 @@ INCLUDE GameData.inc
  strDraftTitle		BYTE "=== PRE-RUN DRAFT: SELECT 2 OF THE 5 RANDOM SYSTEM MODULES ===",0
  strPickedTag		BYTE "  [ADDED]",0
 
+ ;20 descriptions of the cards defined in GameData.inc
+ strCat04        BYTE "OVERCLOCK      (1E) - Draw 2 cards", 0
+ strCat05        BYTE "FIREWALL       (2E) - Gain 12 Block, Draw 1", 0
+ strCat06        BYTE "ZERO-DAY       (1E) - Deal 10 DMG + 2 Vulnerable", 0
+ strCat07        BYTE "CACHE HIT      (0E) - Deal 4 DMG, Draw 1", 0
+ strCat08        BYTE "CORE DUMP      (2E) - Deal 18 DMG", 0
+ strCat09        BYTE "MEMORY LEAK    (1E) - Enemy loses 2 Strength", 0
+ strCat10        BYTE "THREAD POOL    (1E) - Deal 5 DMG twice", 0
+ strCat11        BYTE "DEADLOCK       (2E) - Gain 10 Block + 2 Weak", 0
+ strCat12        BYTE "STACK SMASH    (1E) - Deal 6 DMG + 6 Block", 0
+ strCat13        BYTE "BIT SHIFT      (0E) - Gain 4 Block, Draw 1", 0
+
 
 END
