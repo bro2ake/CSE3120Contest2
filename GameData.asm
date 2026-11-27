@@ -33,4 +33,15 @@ INCLUDE GameData.inc
  handCount			DWORD	0
  discardPile		BYTE	40 DUP(0)
  discardCount		DWORD   0
+
+ ; Pool holding cards 0-19 for initial and post-stage card rewards.
+ catalogPool		BYTE 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+ draftChoices		BYTE DRAFT_POOL_SIZE DUP(0)	; holds 5 randomly chosen card IDs offered for the run.
+ draftSelected		BYTE DRAFT_POOL_SIZE DUP(0)
+ picksRemaining		DWORD DRAFT_PICKS_MAX
+
+ strDraftTitle		BYTE "=== PRE-RUN DRAFT: SELECT 2 OF THE 5 RANDOM SYSTEM MODULES ===",0
+ strPickedTag		BYTE "  [ADDED]",0
+
+
 END
