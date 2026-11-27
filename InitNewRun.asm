@@ -23,8 +23,15 @@ InitNewRun PROC USES eax ecx esi
  xor esi, esi
  mov ecx,5
  AddStrikes:
+  mov masterDeck[esi], CARD_STRIKE
+  inc esi
+  loop AddStrikes
 
+  moc ecx,4
  AddDefends:
+  mov masterDeck[esi], CARD_DEFEND
+  inc esi
+  mov masterDeckCount, esi
 
 InitNewRun ENDP
 END
