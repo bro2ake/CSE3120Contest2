@@ -39,9 +39,17 @@ InitNewRun PROC USES eax ecx esi
 InitNewRun ENDP
 ; shuffle catalog pool to pick 5 distinct cards.
 RollDraftPool PROC USES eax, ebx, ecx, edx, esi
+
+; reseed catalog pool so repeated runs are clean.
  xor esi, esi
  ResetPool:
-  
+  cmp esi, CATALOG_SIZE
+  jge PickFive
+  mov eax, esi
+  mov catalogPool[esi], al
+  inc esi
+  jmp ResetPool
+
  PickFive:
 
  SampleLoop:
