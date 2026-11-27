@@ -94,7 +94,18 @@ DraftStartingCards PROC USES eax ebx ecx edx esi edi
 
   xor ebx, ebx	;for the row slots.
  DrawDraftRows:
+  cmp ebx, DRAFT_POOL_SIZE
+  jge DraftInputLoop
 
+  mov dl, 6
+  mov dh, bl
+  add dh, 5		; for rows 5 through 9
+  call Gotoxy
+
+  cmp draftSelected[ebx],1
+  je PickedRowColor
+  mov eax, white + (black*16)
+  jmp SetRowColor
  PickedRowColors:
 
  SetRowColor:
