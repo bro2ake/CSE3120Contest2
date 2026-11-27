@@ -51,8 +51,16 @@ RollDraftPool PROC USES eax, ebx, ecx, edx, esi
   jmp ResetPool
 
  PickFive:
+  xor esi, esi		; slot 0, 1, 2, 3, 4
 
  SampleLoop:
+  cmp esi, DRAFT_POOL_SIZE
+  jge DoneRoll
+
+  mov eax, CATALOG_SIZE
+  sub eax, esi
+  call RandomRange
+  add eax, esi
 
  DoneRoll:
  
