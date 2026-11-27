@@ -83,8 +83,16 @@ DraftStartingCards PROC USES eax ebx ecx edx esi edi
  ;Renders the 5 rolled cards at Y = 5 through 9 and lets the player pick 2 via keys '1' through '5' or left clicking on a row.
  mov picksRemaining, DRAFT_PICKS_MAX
 
+ ;draws the title for the card selections.
  RedrawDraft:
+  call Clrscr
+  mov dl, 4
+  mov dh, 2
+  call Gotoxy
+  mov edx, OFFSET strDraftTitle
+  call WriteString
 
+  xor ebx, ebx	;for the row slots.
  DrawDraftRows:
 
  PickedRowColors:
